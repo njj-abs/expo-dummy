@@ -1,9 +1,13 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { Button } from 'react-native';
+import { Button, View, StyleSheet } from 'react-native';
+import Location from './location';
 
 const Components = () =>
-	<NavigationContainer>
-		<Button title='navigation'></Button>
-	</NavigationContainer>
+	<View>
+		<NavigationContainer>
+			<Button title='Hello'></Button>
+		</NavigationContainer>
+		<Location></Location>
+	</View>
 
 export default Components;
