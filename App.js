@@ -4,13 +4,18 @@ import { Button, View } from 'react-native';
 import Main from './src/index';
 
 export default function App() {
-	const [ state, setState ] = useState();
+	const [state, setState] = useState({
+		location: {
+			data: 'loading',
+			error: ''
+		},
+	});
 
 	const context = { state, setState };
 
 	return (
 		<View>
-			<Main { ...context }></Main>
+			<Main {...context}></Main>
 		</View>
 	);
 }
