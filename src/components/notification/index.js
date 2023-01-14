@@ -10,11 +10,11 @@ Notifications.setNotificationHandler({
     }),
 });
 
-const schedulePushNotification = async () => {
+const schedulePushNotification = async ({ body }) => {
     await Notifications.scheduleNotificationAsync({
         content: {
             title: "You've got mail! 📬",
-            body: 'Here is the notification body',
+            body: body,
             data: { data: 'goes here' },
         },
         trigger: { seconds: 2 },
@@ -84,9 +84,15 @@ const Notification = (context) => {
                 <Text>Data: {notification && JSON.stringify(notification.request.content.data)}</Text>
             </View>
             <Button
-                title="Press to schedule a notification"
+                title="Open Tab one"
                 onPress={async () => {
-                    await schedulePushNotification();
+                    await schedulePushNotification({ body: 'Opened Tab one' });
+                }}
+            />
+            <Button
+                title="Open Tab two"
+                onPress={async () => {
+                    await schedulePushNotification({ body: 'Opened Tab two' });
                 }}
             />
         </View>
